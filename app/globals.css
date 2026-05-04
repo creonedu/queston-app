@@ -1,0 +1,66 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --safe-bottom: env(safe-area-inset-bottom);
+  --safe-top: env(safe-area-inset-top);
+}
+
+* {
+  -webkit-tap-highlight-color: transparent;
+}
+
+*:focus {
+  outline: none;
+}
+
+html, body {
+  height: 100%;
+  background: #0E1116;
+  color: #F5F2E8;
+  font-feature-settings: "ss01", "ss02", "kern";
+  -webkit-font-smoothing: antialiased;
+  overflow: hidden;
+  overscroll-behavior: none;
+}
+
+@layer components {
+  .chip {
+    @apply inline-flex items-center gap-1.5 px-2.5 py-1 bg-surface-2 rounded-full text-[11px] font-medium text-ink-soft border border-line;
+  }
+  .chip-accent {
+    @apply bg-accent-soft text-accent border-[rgba(255,87,34,0.25)] font-semibold;
+  }
+  .pill {
+    @apply flex-shrink-0 px-4 py-2 bg-surface border border-line rounded-full text-xs text-ink-soft font-medium cursor-pointer transition-all whitespace-nowrap;
+  }
+  .pill-active {
+    @apply bg-ink text-bg border-ink font-semibold;
+  }
+  .btn {
+    @apply h-[50px] rounded-2xl border border-line bg-surface text-ink font-semibold text-[13px] cursor-pointer transition-all flex items-center justify-center gap-1.5 active:scale-[0.98];
+  }
+  .btn-primary {
+    @apply bg-ink text-bg border-ink;
+  }
+  .btn-accent {
+    @apply bg-accent text-white border-accent;
+  }
+  .btn-block {
+    @apply w-full h-14 rounded-2xl bg-accent text-white border-none font-bold text-[15px] cursor-pointer transition-all active:scale-[0.98] disabled:bg-surface-2 disabled:text-muted disabled:cursor-not-allowed disabled:active:scale-100;
+  }
+}
+
+@layer utilities {
+  .scrollbar-hide::-webkit-scrollbar {
+    display: none;
+  }
+  .scrollbar-hide {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+  }
+  .text-eyebrow {
+    @apply font-mono text-[10px] tracking-[0.18em] uppercase text-accent font-semibold;
+  }
+}
